@@ -17,6 +17,7 @@ phases:
       - cd ..
       - cd ProduceAirbnbBookingData
       - zip -g ../deployment_package_produce.zip lambda_function.py
+      - cd ..
       - echo "Zipping deployment package for s3 lambda..."
       - cd lib/s3
       - zip -r9 ../../deployment_package_s3.zip .
@@ -24,6 +25,7 @@ phases:
       - cd ..
       - cd Airbnb-lambda-to-s3
       - zip -g ../deployment_package_s3.zip lambda_function.py
+      - cd ..
       - echo "Zipping deployment package for filter lambda..."
       - cd ProcessFilteredBookings
       - zip -r9 ../deployment_package_filter.zip .
