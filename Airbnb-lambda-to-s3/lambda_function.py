@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     # TODO implement
     #print(event)
 
-    message = event
+    message = event[0]['order']
     s3_client = boto3.client('s3')
     s3_resource = boto3.resource('s3')
     today_date = str(date.today())
