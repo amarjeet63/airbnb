@@ -4,9 +4,9 @@ import boto3
 from datetime import date
 import pandas as pd
 
-event = {'bookingid': 'f5be98f9-80c2-43fd-a254-5930eb5959d4', 'userid': 51000, 'propertyid': 21, 'location': 'Vincentstad,Togo', 'startdate': '2024-03-30', 'enddate': '2024-03-31', 'price': '$1,700.00'}
+#event = {'bookingid': 'f5be98f9-80c2-43fd-a254-5930eb5959d4', 'userid': 51000, 'propertyid': 21, 'location': 'Vincentstad,Togo', 'startdate': '2024-03-30', 'enddate': '2024-03-31', 'price': '$1,700.00'}
 
-print(event)
+#print(event)
 def lambda_handler(event, context):
     # TODO implement
     #print(event)
