@@ -4,14 +4,17 @@ import boto3
 from datetime import date
 import pandas as pd
 
-event = {'bookingid': 'f5be98f9-80c2-43fd-a254-5930eb5959d4', 'userid': 51000, 'propertyid': 21, 'location': 'Vincentstad,Togo', 'startdate': '2024-03-30', 'enddate': '2024-03-31', 'price': '$1,700.00'}
+event = {'order': {'bookingid': 'f5be98f9-80c2-43fd-a254-5930eb5959d4', 'userid': 51000, 'propertyid': 21,
+                   'location': 'Vincentstad,Togo', 'startdate': '2024-03-30', 'enddate': '2024-03-31',
+                   'price': '$1,700.00'}}
 
-#print(event)
+
+# print(event)
 def lambda_handler(event, context):
     # TODO implement
-    #print(event)
+    # print(event)
 
-    message = event[0]['order']
+    message = event['order']
     s3_client = boto3.client('s3')
     s3_resource = boto3.resource('s3')
     today_date = str(date.today())
@@ -43,7 +46,7 @@ def lambda_handler(event, context):
         df = df.set_index(list(df.columns)[0])
         df.loc[message['bookingid']] = [message['userid'], message['propertyid'], message['location'],
                                         message['startdate'], message['enddate'], message['price']]
-        #df.to_csv('/tmp/test.csv', encoding='utf-8')
+        # df.to_csv('/tmp/test.csv', encoding='utf-8')
         df.to_csv('/tmp/test.csv', encoding='utf-8')
         s3_resource.Bucket('airbnb-booking-records-bucket').upload_file('/tmp/test.csv',
                                                                         f'date={today_date}/Airbnb{today_date}.csv')
