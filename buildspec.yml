@@ -15,13 +15,15 @@ phases:
       - zip -r9 ../../deployment_package_produce.zip .
       - cd ..
       - cd ..
-      - zip -g deployment_package_produce.zip ProduceAirbnbBookingData/lambda_function.py
+      - cd ProduceAirbnbBookingData
+      - zip -g ../deployment_package_produce.zip lambda_function.py
       - echo "Zipping deployment package for s3 lambda..."
       - cd lib/s3
       - zip -r9 ../../deployment_package_s3.zip .
       - cd ..
       - cd ..
-      - zip -g deployment_package_s3.zip Airbnb-lambda-to-s3/lambda_function.py
+      - cd Airbnb-lambda-to-s3
+      - zip -g ../deployment_package_s3.zip lambda_function.py
       - echo "Zipping deployment package for filter lambda..."
       - cd ProcessFilteredBookings
       - zip -r9 ../deployment_package_filter.zip .
