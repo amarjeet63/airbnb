@@ -12,13 +12,13 @@ phases:
     commands:
       - echo "Zipping deployment package for produce lambda..."
       - cd lib/produce
-      - zip -r9 ../deployment_package_produce.zip .
+      - zip -r9 ../../deployment_package_produce.zip .
       - cd ..
       - cd ..
       - zip -g deployment_package_produce.zip ProduceAirbnbBookingData/lambda_function.py
       - echo "Zipping deployment package for s3 lambda..."
       - cd lib/s3
-      - zip -r9 ../deployment_package_s3.zip .
+      - zip -r9 ../../deployment_package_s3.zip .
       - cd ..
       - cd ..
       - zip -g deployment_package_s3.zip Airbnb-lambda-to-s3/lambda_function.py
