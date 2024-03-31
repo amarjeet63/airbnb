@@ -25,6 +25,7 @@ phases:
       - echo "Zipping deployment package for filter lambda..."
       - cd ProcessFilteredBookings
       - zip -r9 ../deployment_package_filter.zip .
+      - cd ..
   post_build:
     commands:
       - echo "Uploading produce zip to S3..."
