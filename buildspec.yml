@@ -12,13 +12,13 @@ phases:
     commands:
       - echo "Zipping deployment package for produce lambda..."
       - cd lib/produce
-      - zip -r9 ../deployment_package_produce.zip .
+      - zip -r9 ../../deployment_package_produce.zip .
       - cd ..
       - cd ..
       - zip -g deployment_package_produce.zip ProduceAirbnbBookingData/lambda_function.py
       - echo "Zipping deployment package for s3 lambda..."
       - cd lib/s3
-      - zip -r9 ../deployment_package_s3.zip .
+      - zip -r9 ../../deployment_package_s3.zip .
       - cd ..
       - cd ..
       - zip -g deployment_package_s3.zip Airbnb-lambda-to-s3/lambda_function.py
@@ -41,4 +41,4 @@ phases:
       - aws s3 cp deployment_package_filter.zip s3://lambda-builds-zip-01/
       - echo "Updating Lambda function via S3..."
       - aws lambda update-function-code --function-name ProcessFilteredBookings --s3-bucket lambda-builds-zip-01 --s3-key deployment_package_s3.zip
-      - echo "Deployment completed for filter lambda!! "
+      - echo "Deployment completed for filter lambda !! "
