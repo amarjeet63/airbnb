@@ -1,13 +1,13 @@
 import json
 from datetime import datetime
 
-#event = "{\n    \"bookingid\": \"f5be98f9-80c2-43fd-a254-5930eb5959d4\",\n    \"userid\": 51000,\n    \"propertyid\": 21,\n    \"location\": \"Vincentstad,Togo\",\n    \"startdate\": \"2024-03-30\",\n    \"enddate\": \"2024-03-31\",\n    \"price\": \"$1,700.00\"\n}"
+#event = "{\n    \"bookingid\": \"9c3b7607-7eda-4ec5-8c0e-dc613b2d76f3\",\n    \"userid\": 21434,\n    \"propertyid\": 71,\n    \"location\": \"Nguyenport,Kyrgyz Republic\",\n    \"startdate\": \"2024-03-31\",\n    \"enddate\": \"2024-04-01\",\n    \"price\": \"$1,595.00\"\n},{\n    \"bookingid\": \"9c3b7607-7eda-4ec5-8c0e-dc613b2d76f3\",\n    \"userid\": 21434,\n    \"propertyid\": 71,\n    \"location\": \"Nguyenport,Kyrgyz Republic\",\n    \"startdate\": \"2024-03-31\",\n    \"enddate\": \"2024-04-01\",\n    \"price\": \"$1,595.00\"\n}"
 
 def lambda_handler(event, context):
     try:
         # print('Event: ', event)
         # print('context: ', context)
-        # print(event)
+        print(event)
         order = json.loads(event)
         print(order)
         Edate = datetime.strptime(order['enddate'], "%Y-%m-%d")
