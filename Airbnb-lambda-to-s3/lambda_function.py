@@ -48,7 +48,7 @@ def lambda_handler(event, context):
                                         message['startdate'], message['enddate'], message['price']]
         # df.to_csv('/tmp/test.csv', encoding='utf-8')
         df.to_csv('/tmp/test.csv', encoding='utf-8')
-        s3_resource.Bucket('airbnb-booking-records-bucket').upload_file('/tmp.test.csv',
+        s3_resource.Bucket('airbnb-booking-records-bucket').upload_file('/tmp/test.csv',
                                                                         f'date={today_date}/Airbnb{today_date}.csv')
 
 
