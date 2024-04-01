@@ -20,7 +20,7 @@ def lambda_handler(event, context):
     today_date = str(date.today())
 
     print(message)
-    if (message == {}):
+    if message == {}:
         return {}
 
     try:
@@ -46,7 +46,7 @@ def lambda_handler(event, context):
         df = df.set_index(list(df.columns)[0])
         df.loc[message['bookingid']] = [message['userid'], message['propertyid'], message['location'],
                                         message['startdate'], message['enddate'], message['price']]
-        # df.to_csv('/tmp/test.csv', encoding='utf-8')
+        #df.to_csv('C:\\Users\\amarjeet.singh\\Documents\\Amar\\test.csv', encoding='utf-8')
         df.to_csv('/tmp/test.csv', encoding='utf-8')
         s3_resource.Bucket('airbnb-booking-records-bucket').upload_file('/tmp/test.csv',
                                                                         f'date={today_date}/Airbnb{today_date}.csv')
