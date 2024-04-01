@@ -9,7 +9,7 @@ def lambda_handler(event, context):
         # print('context: ', context)
         # print(event)
         order = json.loads(event)
-        #print(order)
+        print(order)
         Edate = datetime.strptime(order['enddate'], "%Y-%m-%d")
         Sdate = datetime.strptime(order['startdate'], "%Y-%m-%d")
         delta = Edate - Sdate
@@ -17,6 +17,7 @@ def lambda_handler(event, context):
         if (delta.days != 1):
             order = {}
         else:
+            print(order)
             return {
                 'order': order
                     }
