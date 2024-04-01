@@ -12,7 +12,7 @@ import pandas as pd
 # print(event)
 def lambda_handler(event, context):
     # TODO implement
-    # print(event)
+    print(event)
 
     message = event['order']
     s3_client = boto3.client('s3')
