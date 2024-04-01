@@ -26,4 +26,4 @@ def lambda_handler(event, context):
         return {
             'Error message': str(e)
         }
-lambda_handler(event, 'context')
+#lambda_handler(event, 'context')
