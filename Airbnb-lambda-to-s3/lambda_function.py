@@ -52,4 +52,4 @@ def lambda_handler(event, context):
                                                                         f'date={today_date}/Airbnb{today_date}.csv')
 
 
-#lambda_handler(event, 'context')
+# lambda_handler(event, 'context')

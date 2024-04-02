@@ -18,7 +18,7 @@ def generate_airbnb_booking():
     country = fake.country()
     location = city + ',' + country
     startdate = fake.date_between(start_date='-2d', end_date='today')
-    endddate = fake.date_between(start_date='today', end_date='+2d')
+    endddate = fake.date_between(start_date='today', end_date='+1d')
     price = '${:,.2f}'.format(random.randint(100, 2000))
 
     json_data = {
@@ -39,10 +39,10 @@ def lambda_handler(event, context):
     while (i < 5):
         booking = generate_airbnb_booking()
         print(booking)
-        sqs_client.send_message(
-            QueueUrl=QUEUE_URL,
-            MessageBody=json.dumps(booking)
-        )
+        # sqs_client.send_message(
+        #     QueueUrl=QUEUE_URL,
+        #     MessageBody=json.dumps(booking)
+        # )
         i += 1
 
     return {
@@ -50,3 +50,4 @@ def lambda_handler(event, context):
         'body': json.dumps('Sales order data published to SQS!')
     }
 
+lambda_handler('event', 'context')

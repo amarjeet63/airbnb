@@ -17,7 +17,9 @@ def lambda_handler(event, context):
         if (delta.days != 1):
             order = {}
         else:
-            print(order)
+            print({
+                'order': order
+                    })
             return {
                 'order': order
                     }
