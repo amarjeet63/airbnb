@@ -39,10 +39,10 @@ def lambda_handler(event, context):
     while (i < 5):
         booking = generate_airbnb_booking()
         print(booking)
-        # sqs_client.send_message(
-        #     QueueUrl=QUEUE_URL,
-        #     MessageBody=json.dumps(booking)
-        # )
+        sqs_client.send_message(
+            QueueUrl=QUEUE_URL,
+            MessageBody=json.dumps(booking)
+        )
         i += 1
 
     return {
